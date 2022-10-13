@@ -1,6 +1,9 @@
 # study-note
 Study note manager
 
+# Pages
+https://luizsett7.github.io/study-note/
+
 # Checklist
 
 - [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
