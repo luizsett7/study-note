@@ -7,9 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
 
-  constructor() { }
+  title!: String;
+  priority!: String;
+  isHidePanel = true;
+
+  constructor() {
+    this.priority = "Medium";
+  }
 
   ngOnInit(): void {
+  }
+
+  onSelectChange(event: Event){
+    this.priority = (event.target as HTMLInputElement).value;
+  }
+
+  onInsertClick(){
+    alert("Note inserted");
+  }
+
+  onShowClick(){
+    this.isHidePanel = false;
+  }
+
+  onHideClick(){
+    this.isHidePanel = true;
   }
 
 }

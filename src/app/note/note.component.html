@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col s12 m12">
     <div class="col s12 m4">
-      <div class="card blue-grey darken-1">
+      <div class="card blue darken-3">
         <div class="card-content white-text">
           <span class="card-title">Programming Language</span>
           <p>I am a very simple card. I am good at containing small bits of information.
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="col s12 m4">
-      <div class="card blue-grey darken-1">
+      <div class="card blue darken-3">
         <div class="card-content white-text">
           <span class="card-title">Logic</span>
           <p>I am a very simple card. I am good at containing small bits of information.
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="col s12 m4">
-      <div class="card blue-grey darken-1">
+      <div class="card blue darken-3">
         <div class="card-content white-text">
           <span class="card-title">Data Structure</span>
           <p>I am a very simple card. I am good at containing small bits of information.
@@ -33,6 +33,38 @@
         </div>
         <div class="card-action">
           <a href="#">view more</a>
+        </div>
+      </div>
+    </div>
+    <button id="show-btn" class="btn btns waves-effect waves-light" (click)="this.onShowClick()" type="submit" name="action">Show Form
+      <i class="material-icons right">send</i>
+    </button>
+    <div class="col s12 m4" [hidden]="this.isHidePanel">
+      <div class="card blue darken-3">
+        <div class="card-content white-text">
+          <span class="card-title">Title: {{ this.title }}</span>
+          <span class="card-title">Priority: {{ this.priority }}</span>
+          <p>Write the note title below.</p>
+        </div>
+        <div class="card-action">
+          <div class="input-field col s12">
+            <input [(ngModel)]="title" placeholder="Title *">
+          </div>
+          <div class="input-field col s12">
+            <select (change)="this.onSelectChange($event)">
+              <option value="High">High</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+          <button id="insert-btn" class="btn btns waves-effect waves-light" (click)="this.onInsertClick()" type="submit" name="action">Insert
+            <i class="material-icons right">send</i>
+          </button>
+          <div [hidden]="this.isHidePanel">
+            <button id="hide-btn" class="btn btns waves-effect waves-light" (click)="this.onHideClick()" type="submit" name="action">Hide Form
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
