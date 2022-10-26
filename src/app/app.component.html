@@ -1,4 +1,13 @@
-<span>{{ title }} app is running!</span>
-
-<app-header></app-header>
-<app-note></app-note>
+<header>
+  <app-header>
+  </app-header>
+</header>
+<main>
+  <div class="container">
+      <router-outlet></router-outlet>
+      <app-note></app-note>
+  </div>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>
