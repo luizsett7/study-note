@@ -3,42 +3,21 @@
     <div class="col s12 m4">
       <div class="card blue darken-3">
         <div class="card-content white-text">
-          <span class="card-title">Programming Language</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+          <span class="card-title">{{ this.title }}</span>
+          <span class="card-title">Priority: {{ this.priority }}</span>
+          <p>{{ this.description }}</p>
+          <p>{{ this.category }}</p>
         </div>
         <div class="card-action">
-          <a href="#">view more</a>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m4">
-      <div class="card blue darken-3">
-        <div class="card-content white-text">
-          <span class="card-title">Logic</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">view more</a>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m4">
-      <div class="card blue darken-3">
-        <div class="card-content white-text">
-          <span class="card-title">Data Structure</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">view more</a>
+          <a [routerLink]="['/view',id]">view more</a>
+          <a href="#" (click)="this.onShowDetail()">view detail</a>
         </div>
       </div>
     </div>
     <button id="show-btn" class="btn btns waves-effect waves-light" (click)="this.onShowClick()" type="submit" name="action">Show Form
       <i class="material-icons right">send</i>
     </button>
+    <app-add (newNote)="addNote($event)"></app-add>
     <div class="col s12 m4" [hidden]="this.isHidePanel">
       <div class="card blue darken-3">
         <div class="card-content white-text">
@@ -69,3 +48,5 @@
       </div>
     </div>
 </div>
+<app-detail [hidden]="this.isHideDetail" [title]="this.title" [description]="this.description" [priority]="this.priority"></app-detail>
+

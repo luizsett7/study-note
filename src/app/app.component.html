@@ -5,9 +5,10 @@
 <main>
   <div class="container">
       <router-outlet></router-outlet>
-      <app-note></app-note>
   </div>
 </main>
 <footer>
-    <app-footer></app-footer>
+    <app-footer>
+      <span class="time">{{ this?.currentDate | date: "HH:mm:ss" }}</span>
+    </app-footer>
 </footer>

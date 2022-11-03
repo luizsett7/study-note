@@ -1,7 +1,4 @@
-import * as $ from 'jquery';
-import * as M from 'materialize-css';
-
-import { AfterViewInit, Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +6,17 @@ import { AfterViewInit, Component, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements AfterViewInit {
-  @ViewChild('mobile') sideNav?: ElementRef;
-
+export class AppComponent implements OnInit {
   title = 'StudyNote';
+  currentDate: Date;
 
-  ngAfterViewInit():void{
-    let $sideNav = $('#mobile-demo');
-    //M.Sidenav.init(this.sideNav?.nativeElement);
-    M.Sidenav.init($sideNav);
+  constructor(){
+    this.currentDate = new Date();
+  }
+
+  ngOnInit(): void{
+    setInterval(() => {
+      this.currentDate = new Date();
+    }, 1000);
   }
 }

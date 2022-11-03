@@ -7,12 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
 
+  id: Number;
   title!: String;
+  description!: String;
   priority!: String;
   isHidePanel = true;
+  isHideDetail = true;
+  category: String[];
 
   constructor() {
+    this.id = 1;
+    this.title = "Title Ipsum";
     this.priority = "Medium";
+    this.description = "Lorem Ipsum";
+    this.category = ['Programming','Data Structure'];
+  }
+
+  addNote(category: string): void{
+    this.category.push(category);
   }
 
   ngOnInit(): void {
@@ -28,6 +40,10 @@ export class NoteComponent implements OnInit {
 
   onShowClick(){
     this.isHidePanel = false;
+  }
+
+  onShowDetail(){
+    this.isHideDetail = false;
   }
 
   onHideClick(){
