@@ -1,0 +1,15 @@
+select{
+  display: block;
+}
+
+input{
+  color: #FFFFFF;
+}
+
+.btns{
+  margin-left: 10px;
+}
+
+#hide-btn{
+  margin-top: 5px;
+}

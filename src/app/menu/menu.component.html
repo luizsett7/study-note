@@ -1,0 +1,18 @@
+<nav class="nav-extended">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a [routerLink]="['/']" class="brand-logo"><img src="assets/resources/images/logo.png" width="50"/></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a [routerLink]="['/add']">Insert</a></li>
+        <li><a [routerLink]="['/list']">List</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo" #mobile>
+  <li><a [routerLink]="['/add']">Insert</a></li>
+  <li><a [routerLink]="['/list']">List</a></li>
+</ul>
+

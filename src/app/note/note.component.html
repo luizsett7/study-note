@@ -1,1 +1,12 @@
-<p>note works!</p>
+<div class="card blue darken-3">
+  <div class="card-content white-text">
+    <span class="card-title">{{ note.title | titlecase }}</span>
+    <span class="card-title">Priority: {{ note.priority }}</span>
+    <p>{{ note.description | lowercase }}</p>
+  </div>
+  <div class="card-action">
+    <a [routerLink]="['/view', note.id]">view more</a>
+    <a [routerLink]="['/edit', note.id]">edit note</a>
+    <a (click)="onDelete(note)">delete note</a>
+  </div>
+</div>
