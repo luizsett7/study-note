@@ -1,3 +1,4 @@
+import { NoteStorageService } from './services/note-storage.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,8 @@ import { ViewComponent } from './view/view.component';
 import { AddComponent } from './add/add.component';
 import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NoteService } from './services/note.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +33,10 @@ import { ListComponent } from './list/list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [NoteService, NoteStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

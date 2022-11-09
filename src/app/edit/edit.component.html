@@ -1,1 +1,59 @@
-<h1>Edit</h1>
+<form class="col s12" #form="ngForm" (submit)="onSubmit()">
+  <div class="input-field col s12">
+    <input
+      id="input-title"
+      name="input-title"
+      type="text"
+      class="validate"
+      [(ngModel)]="this.note.title"
+      pattern="^(\s?[A-ZÀ-Úa-zà-ú0-9]*)+"
+      #title="ngModel"
+      required
+    />
+    <label class="active" for="input-title">Title *</label>
+    <div class="red-text" [hidden]="title.valid || title.untouched">
+      Please, insert a title
+    </div>
+    <div class="red-text" *ngIf="title.errors?.['required'] && title.touched">
+      Please, title is mandatory
+    </div>
+    <span
+      class="helper-text"
+      data-error="The field is invalid"
+      data-success="Ok!"
+    ></span>
+  </div>
+  <div class="input-field col s12">
+    <input
+      id="input-description"
+      name="input-description"
+      type="text"
+      class="validate"
+      [(ngModel)]="this.note.description"
+      pattern="^(\s?[A-ZÀ-Úa-zà-ú0-9]*)+"
+      #description="ngModel"
+      required
+    />
+    <label class="active" for="input-description">Description *</label>
+    <div class="red-text" [hidden]="description.valid || description.untouched">
+      Please, insert a description
+    </div>
+    <div class="red-text" *ngIf="description.errors?.['required'] && description.touched">
+      Please, description is mandatory
+    </div>
+    <span
+      class="helper-text"
+      data-error="The field is invalid"
+      data-success="Ok!"
+    ></span>
+  </div>
+  <button
+        class="btn waves-effect waves-light amber darken-4"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Send
+        <i class="material-icons right">send</i>
+      </button>
+  </form>
+

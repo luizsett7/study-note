@@ -1,5 +1,7 @@
+import { NoteService } from './../services/note.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Note } from '../model/note';
 
 @Component({
   selector: 'app-view',
@@ -7,17 +9,19 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  @Input() title: String = '';
-  @Input() description: String = '';
+  note!: Note;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private noteService: NoteService) {
 
    }
 
   ngOnInit(): void {
+    this.note = new Note('','','','');
     const noteId: number = +this.route.snapshot.paramMap.get('id')!;
-    this.title = 'Title Ipsum '+noteId;
-    this.description = 'Lorem Ipsum '+noteId;
+    const getNoteById = async () => {
+      this.note = await this.noteService.getNoteById(noteId);
+    };
+    getNoteById();
   }
 
 }

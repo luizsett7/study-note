@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "guilherme.setti",
+      "password": "123",
+      "balance": 1068.23,
+      "isAdmin": true
+    }
+  ],
+  "notes": [
+    {
+      "id": "862",
+      "title": "FSADDFSA SADF",
+      "description": "FSADF 46544",
+      "priority": "",
+      "date": "Wed Nov 09 2022 20:23:24 GMT-0300 (Brasilia Standard Time)"
+    }
+  ]
+}

@@ -7,10 +7,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { NoteComponent } from './note/note.component';
 
 const routes: Routes = [
-  { path: '', component: NoteComponent },
+  { path: '', component: ListComponent },
   { path: 'add', component: AddComponent },
   { path: 'list', component: ListComponent, children: [{ path: 'edit', component: EditComponent }]},
-  { path: 'view/:id', component: ViewComponent }
+  { path: 'view/:id', component: ViewComponent },
+  { path: 'edit/:id', component: EditComponent }
 ];
 
 @NgModule({
