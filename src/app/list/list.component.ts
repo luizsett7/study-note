@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NoteStorageService } from './../services/note-storage.service';
 import { NoteService } from './../services/note.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,8 +19,8 @@ export class ListComponent implements OnInit {
   isSuccess!: boolean;
   message!: string;
 
-  constructor(private router: Router, private noteService: NoteService, private noteStorageService: NoteStorageService) {
-
+  constructor(private route: ActivatedRoute, private router: Router, private noteService: NoteService, private noteStorageService: NoteStorageService) {
+    this.message = this.route.snapshot.paramMap.get('message')!;
   }
 
   ngOnInit(): void {

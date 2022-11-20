@@ -34,13 +34,21 @@ export class NoteService {
   }
 
   save(note: Note): Promise<Note> {
-    return this.httpClient
-      .post<Note>(
-        `${RoutesAPI.NOTES}`,
-        JSON.stringify(note),
-        this.httpOptions
-      )
-      .toPromise().then();
+    const p = new Promise<Note>((resolve, reject) => {
+      if(note.title.length < 2){
+        reject('Insert a title with two letters at least');
+      }else{
+        resolve(
+          this.httpClient
+          .post<Note>(
+            `${RoutesAPI.NOTES}`,
+            JSON.stringify(note),
+            this.httpOptions
+          ).toPromise().then()
+        );
+      }
+    })
+    return p;
   }
 
   update(note: Note): Promise<Note> {
