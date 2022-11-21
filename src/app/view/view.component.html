@@ -1,0 +1,51 @@
+  <div class="input-field col s12">
+    <input
+      id="input-title"
+      name="input-title"
+      type="text"
+      class="validate"
+      [(ngModel)]="this.note.title"
+      pattern="^(\s?[a-zà-ú]*)+"
+      #title="ngModel"
+      disabled="disabled"
+    />
+    <label class="active" for="input-title">Title</label>
+    <div class="red-text" [hidden]="title.valid || title.untouched">
+      Please, insert a title
+    </div>
+    <div class="red-text" *ngIf="title.errors?.['required'] && title.touched">
+      Please, title is mandatory
+    </div>
+    <span
+      class="helper-text"
+      data-error="The field is invalid"
+      data-success="Ok!"
+    ></span>
+  </div>
+  <div class="input-field col s12">
+    <input
+      id="input-description"
+      name="input-description"
+      type="text"
+      class="validate"
+      [(ngModel)]="this.note.description"
+      pattern="^(\s?[a-zà-ú]*)+"
+      #description="ngModel"
+      disabled="disabled"
+    />
+    <label class="active" for="input-description">Description</label>
+    <div class="red-text" [hidden]="description.valid || description.untouched">
+      Please, insert a description
+    </div>
+    <div class="red-text" *ngIf="description.errors?.['required'] && description.touched">
+      Please, description is mandatory
+    </div>
+    <span
+      class="helper-text"
+      data-error="The field is invalid"
+      data-success="Ok!"
+    ></span>
+  </div>
+
+
+

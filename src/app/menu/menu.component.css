@@ -1,0 +1,16 @@
+.nav-extended{
+  height: 100%;
+  background-color: #7749F8;
+}
+
+.brand-logo{
+  margin-top: 5px;
+}
+
+#nav-mobile{
+  margin-left: 50px;
+}
+
+.nav-wrapper{
+  min-height: 100%;
+}

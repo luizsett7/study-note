@@ -1,4 +1,14 @@
-<span>{{ title }} app is running!</span>
-
-<app-header></app-header>
-<app-note></app-note>
+<header>
+  <app-header>
+  </app-header>
+</header>
+<main>
+  <div class="container">
+      <router-outlet></router-outlet>
+  </div>
+</main>
+<footer>
+    <app-footer>
+      <span class="time">{{ this?.currentDate | date: "HH:mm:ss" }}</span>
+    </app-footer>
+</footer>
