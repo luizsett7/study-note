@@ -18,10 +18,12 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
     this.note = new Note('','','','');
     const noteId: number = +this.route.snapshot.paramMap.get('id')!;
-    const getNoteById = async () => {
-      this.note = await this.noteService.getNoteById(noteId);
-    };
-    getNoteById();
+    this.getNoteById(noteId);
+  }
+
+  getNoteById(noteId: number): void {
+    this.noteService.getNoteById(noteId)
+    .subscribe(note => this.note = note);
   }
 
 }

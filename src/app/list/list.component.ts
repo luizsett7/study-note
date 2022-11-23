@@ -26,18 +26,21 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     Shared.initializeWebStorage();
     this.note = new Note('', '', '', '');
-    const getNotes = async () => {
+    /*const getNotes = async () => {
       this.notes = await this.noteService.getNotes();
     };
-    getNotes();
+    getNotes();*/
+    this.getNotes();
     this.notesStorage = this.noteStorageService.getNotes();
   }
 
+  getNotes(): void {
+    this.noteService.getNotes()
+    .subscribe(notes => this.notes = notes);
+  }
+
   reloadNotesParent(value: string) {
-    const getNotes = async () => {
-      this.notes = await this.noteService.getNotes();
-    };
-    getNotes();
+    this.getNotes();
     this.notesStorage = this.noteStorageService.getNotes();
   }
 
@@ -57,14 +60,11 @@ export class ListComponent implements OnInit {
     this.isShowMessage = true;
     this.isSuccess = response;
     if (response) {
-      this.message = 'O item foi removido com sucesso!';
+      this.message = 'The item has been removed!';
     } else {
-      this.message = 'Opps! O item não pode ser removido!';
+      this.message = 'Opps! The item can\'t be removed!';
     }
-    const getNotes = async () => {
-      this.notes = await this.noteService.getNotes();
-    };
-    getNotes();
+    this.getNotes();
     this.notesStorage = this.noteStorageService.getNotes();
   }
 }

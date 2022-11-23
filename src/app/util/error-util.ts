@@ -8,46 +8,31 @@ export class ErrorUtil {
     let errorMessage = '';
     console.log(error);
     if (error.status === 0) {
-      //if (error instanceof Error || error instanceof ErrorEvent) {
-      console.error('cliente');
+      console.error('client');
       errorMessage =
         error instanceof AppError
           ? error.message
-          : 'Opsss! Um problema inesperado aconteceu! (lado cliente)';
+          : 'Problem in client side';
     } else {
       console.error('servidor');
       errorMessage = ErrorUtil.getServerErrorMessage(error);
     }
-
-    //retorna um HttpErrorResponse
-    //return throwError(error);
-
-    //retorna um Error
     return throwError(new Error(errorMessage));
-
-    //retorna um Error
-    //return throwError(Error(errorMessage));
-
-    //retorna apenas uma string
-    //return throwError(errorMessage);
-
-    //retorna uma função
-    //return throwError(() => new Error(errorMessage));
   }
 
   private static getServerErrorMessage(error: HttpErrorResponse) {
     switch (error.status) {
       case 404: {
-        return `O recurso informado não foi encontrado!`;
+        return `Resource not found!`;
       }
       case 403: {
-        return `O acesso foi negado!`;
+        return `Access forbidden!`;
       }
       case 500: {
-        return `Oppsss! Um erro inesperado aconteceu!`;
+        return `An error happened!`;
       }
       default: {
-        return `Oppsss! Um erro inesperado aconteceu! Tente novamente mais tarde!`;
+        return `An error happened, try again later!`;
       }
     }
   }

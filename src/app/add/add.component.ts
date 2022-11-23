@@ -29,14 +29,13 @@ export class AddComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
-    //if (!this.noteService.isExist(this.note.title)) {
-      this.noteService.save(this.note).then(() => {
-        this.message = 'Note inserted!';
-      })
-      .catch((e) => {
-        this.message = e;
-        alert(e);
-      });
+    this.noteService.save(this.note).then(() => {
+      this.message = 'Note inserted!';
+    })
+    .catch((e) => {
+      this.message = e;
+      alert(e);
+    });
     this.noteStorageService.save(this.note);
     this.isShowMessage = true;
     this.isSuccess = true;
@@ -45,10 +44,5 @@ export class AddComponent implements OnInit {
     this.note = new Note('', '', '','');
 
     this.router.navigate(['/list']);
-
-    //this.notes = this.noteService.getNotes();
-
-    //this.noteService.notifyTotalNotes();
   }
-
 }

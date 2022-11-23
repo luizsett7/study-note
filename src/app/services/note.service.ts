@@ -15,22 +15,23 @@ export class NoteService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  getNotes(): Promise<Note[]>  {
+  /*getNotes(): Promise<Note[]>  {
     return this.httpClient
       .get<Note>(
         `${RoutesAPI.NOTES}`,
         this.httpOptions
       )
       .toPromise().then();
+  }*/
+
+  getNotes(): Observable<Note[]> {
+    return this.httpClient.get<Note[]>(`${RoutesAPI.NOTES}`)
+    .pipe(catchError(ErrorUtil.handleError));
   }
 
-  getNoteById(id: number): Promise<Note>  {
-    return this.httpClient
-      .get<Note>(
-        `${RoutesAPI.NOTES}/${id}`,
-        this.httpOptions
-      )
-      .toPromise().then();
+  getNoteById(id: number): Observable<Note> {
+    return this.httpClient.get<Note>(`${RoutesAPI.NOTES}/${id}`)
+    .pipe(catchError(ErrorUtil.handleError));
   }
 
   save(note: Note): Promise<Note> {
