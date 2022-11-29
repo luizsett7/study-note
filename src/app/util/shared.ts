@@ -1,5 +1,4 @@
 import { Constants } from './constants';
-import { Note } from '../model/note';
 
 export class Shared {
   constructor() {}
