@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "guilherme.setti",
+      "password": "123",
+      "balance": 1068.23,
+      "isAdmin": true
+    }
+  ],
+  "notes": []
+}

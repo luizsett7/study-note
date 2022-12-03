@@ -1,0 +1,51 @@
+  <div class="input-field col s12">
+    <input
+      id="input-title"
+      name="input-title"
+      type="text"
+      class="validate"
+      [(ngModel)]="this.note.title"
+      pattern="^(\s?[a-zà-ú]*)+"
+      #title="ngModel"
+      disabled="disabled"
+    />
+    <label class="active" for="input-description">Title</label>
+  </div>
+  <div class="input-field col s12">
+    <input
+      id="input-description"
+      name="input-description"
+      type="text"
+      class="validate"
+      [(ngModel)]="this.note.description"
+      pattern="^(\s?[a-zà-ú]*)+"
+      #description="ngModel"
+      disabled="disabled"
+    />
+    <label class="active" for="input-description">Description</label>
+  </div>
+  <div class="input-field col s12">
+    <input
+      id="input-priority"
+      name="input-priority"
+      type="text"
+      class="validate"
+      [(ngModel)]="this.note.priority!.name"
+      pattern="^(\s?[a-zà-ú]*)+"
+      #priority="ngModel"
+      disabled="disabled"
+    />
+    <label class="active" for="input-priority">Priority</label>
+    <div class="input-field col s12">
+      <input
+        id="input-date"
+        name="input-date"
+        type="text"
+        disabled="disabled"
+        value="{{ note.date | date: 'mediumDate' }}"
+      />
+      <label class="active" for="input-date">Date</label>
+  </div>
+
+
+
