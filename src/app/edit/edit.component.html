@@ -47,6 +47,21 @@
       data-success="Ok!"
     ></span>
   </div>
+  <div class="input-field col s12">
+    <select #selectpriority
+      id="select-priority"
+      name="select-priority"
+      [compareWith]="comparePriority"
+      [(ngModel)]="this.note.priority"
+      #priority="ngModel"
+      required
+    >
+      <option *ngFor="let p of priorities" [ngValue]="p">{{ p.name }}</option>
+    </select>
+    <div class="red-text" [hidden]="priority.valid || priority.untouched">
+      Please, select a priority
+    </div>
+  </div>
   <button
         class="btn waves-effect waves-light amber darken-4"
         type="submit"

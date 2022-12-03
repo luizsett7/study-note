@@ -1,7 +1,8 @@
+import { Priority } from './../model/priority';
 import { Router } from '@angular/router';
 import { NoteStorageService } from './../services/note-storage.service';
 import { NoteService } from './../services/note.service';
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Note } from '../model/note';
 
@@ -12,10 +13,12 @@ import { Note } from '../model/note';
 })
 export class AddComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
+  @ViewChild('selectpriority') prioritySelect!: ElementRef;
   @Output() newNote = new EventEmitter<string>();
 
   note!: Note;
   notes?: Note[];
+  priorities?: Priority[];
   isSubmitted!: boolean;
   isShowMessage: boolean = false;
   isSuccess!: boolean;
@@ -24,7 +27,11 @@ export class AddComponent implements OnInit {
   constructor(private router: Router, private noteService: NoteService, private noteStorageService: NoteStorageService) { }
 
   ngOnInit(): void {
-    this.note = new Note('','','','');
+    this.note = new Note('','',{},'');
+    this.priorities = [{name:'High'},{name:'Medium'},{name:'Low'}];
+    setTimeout(() => {
+      M.FormSelect.init(this.prioritySelect.nativeElement);
+    },100);
   }
 
   onSubmit() {
@@ -41,8 +48,15 @@ export class AddComponent implements OnInit {
     this.isSuccess = true;
 
     this.form.reset();
-    this.note = new Note('', '', '','');
+    this.note = new Note('', '', {},'');
 
     this.router.navigate(['/list']);
+  }
+
+  comparePriority(p1: Priority, p2: Priority){
+    if(p1 != null && p2 != null){
+      return p1.id == p2.id;
+    }
+    return false;
   }
 }

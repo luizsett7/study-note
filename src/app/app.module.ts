@@ -12,7 +12,6 @@ import { MenuComponent } from './menu/menu.component';
 import { EditComponent } from './edit/edit.component';
 import { ViewComponent } from './view/view.component';
 import { AddComponent } from './add/add.component';
-import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NoteService } from './services/note.service';
@@ -27,7 +26,6 @@ import { NoteService } from './services/note.service';
     EditComponent,
     ViewComponent,
     AddComponent,
-    DetailComponent,
     ListComponent
   ],
   imports: [

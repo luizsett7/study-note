@@ -25,11 +25,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     Shared.initializeWebStorage();
-    this.note = new Note('', '', '', '');
-    /*const getNotes = async () => {
-      this.notes = await this.noteService.getNotes();
-    };
-    getNotes();*/
+    this.note = new Note('', '', {}, '');
     this.getNotes();
     this.notesStorage = this.noteStorageService.getNotes();
   }
@@ -50,7 +46,7 @@ export class ListComponent implements OnInit {
 
   onDelete(note: Note) {
     let confirmation = window.confirm(
-      'Você tem certeza que deseja remover ' + note.title
+      'Do you want to delete this note for sure ' + note.title
     );
     if (!confirmation) {
       return;

@@ -1,7 +1,8 @@
+import { Priority } from './../model/priority';
 import { NoteStorageService } from './../services/note-storage.service';
 import { NoteService } from './../services/note.service';
 import { NgForm } from '@angular/forms';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from '../model/note';
 
@@ -12,20 +13,30 @@ import { Note } from '../model/note';
 })
 export class EditComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
+  @ViewChild('selectpriority') selectPriority!: ElementRef;
 
   note!: Note;
   notes?: Note[];
+  priorities?: Priority[];
   isSubmitted!: boolean;
   isShowMessage: boolean = false;
   isSuccess!: boolean;
   message!: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private noteService: NoteService, private noteStorageService: NoteStorageService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private noteService: NoteService, private noteStorageService: NoteStorageService) {
+    this.priorities = [{name:'High'},{name:'Medium'},{name:'Low'}];
+  }
 
   ngOnInit(): void {
-    this.note = new Note('','','','');
+    this.note = new Note('','',{},'');
     const noteId: number = +this.route.snapshot.paramMap.get('id')!;
     this.getNoteById(noteId);
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      M.FormSelect.init(this.selectPriority.nativeElement);
+    },100);
   }
 
   getNoteById(noteId: number): void {
@@ -41,6 +52,13 @@ export class EditComponent implements OnInit {
     this.isSuccess = true;
     this.message = 'Note updated!';
     this.router.navigate(['/list']);
+  }
+
+  comparePriority(p1: Priority, p2: Priority){
+    if(p1 != null && p2 != null){
+      return p1.name == p2.name;
+    }
+    return false;
   }
 
 }

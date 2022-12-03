@@ -34,7 +34,7 @@ export class NoteComponent implements OnInit {
 
   onDelete(note: Note) {
     let confirmation = window.confirm(
-      'Você tem certeza que deseja remover ' + note.title
+      'Do you want to delete the note ' + note.title + ' for sure?'
     );
     if (!confirmation) {
       return;
@@ -43,9 +43,9 @@ export class NoteComponent implements OnInit {
     this.isShowMessage = true;
     this.isSuccess = response;
     if (response) {
-      this.message = 'O item foi removido com sucesso!';
+      this.message = 'The item has been deleted with success!';
     } else {
-      this.message = 'Opps! O item não pode ser removido!';
+      this.message = 'The item can\'t be removed!';
     }
     this.reloadNotes.emit('reload');
   }

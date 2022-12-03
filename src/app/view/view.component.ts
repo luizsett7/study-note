@@ -16,7 +16,7 @@ export class ViewComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.note = new Note('','','','');
+    this.note = new Note('','',{},'');
     const noteId: number = +this.route.snapshot.paramMap.get('id')!;
     this.getNoteById(noteId);
   }

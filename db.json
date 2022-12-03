@@ -8,34 +8,5 @@
       "isAdmin": true
     }
   ],
-  "notes": [
-    {
-      "id": "245",
-      "title": "sadfsdf 2",
-      "description": "asdfsdf 2",
-      "priority": "",
-      "date": "Tue Nov 22 2022 21:34:35 GMT-0300 (Brasilia Standard Time)"
-    },
-    {
-      "id": "583",
-      "title": "aaab 2",
-      "description": "aab 2",
-      "priority": "",
-      "date": "Tue Nov 22 2022 21:46:26 GMT-0300 (Brasilia Standard Time)"
-    },
-    {
-      "id": "95",
-      "title": "aaa",
-      "description": "aasas",
-      "priority": "",
-      "date": "Wed Nov 23 2022 22:00:06 GMT-0300 (Brasilia Standard Time)"
-    },
-    {
-      "id": "310",
-      "title": "asdfsdf",
-      "description": "asdfsdf",
-      "priority": "",
-      "date": "Sun Nov 27 2022 18:17:04 GMT-0300 (Brasilia Standard Time)"
-    }
-  ]
+  "notes": []
 }
