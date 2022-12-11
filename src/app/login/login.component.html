@@ -1,0 +1,44 @@
+<div class="container contact">
+  <h5>Login</h5>
+  <h6>Insert your data access</h6>
+  <hr />
+  <div class="row">
+    <div class="col s12">
+      <div
+        id="msg-login"
+        class="card-panel red white-text"
+        style="display: none"
+      ></div>
+    </div>
+    <form class="col s12" (ngSubmit)="onLogin()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="input-username"
+            name="input-username"
+            type="text"
+            class="validate"
+            [(ngModel)]="this.loginUser.username"
+          />
+          <label for="input-username">Username</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="input-password"
+            name="input-password"
+            type="password"
+            class="validate"
+            [(ngModel)]="this.loginUser.password"
+          />
+          <label for="input-password">Password</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light amber darken-4" type="submit">
+        Enviar
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+</div>

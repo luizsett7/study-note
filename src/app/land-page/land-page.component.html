@@ -1,0 +1,15 @@
+<div *ngIf="this.loggedIn">
+  <h1>Save your study notes</h1>
+</div>
+<div id="painel-login" class="row" [hidden]="this.loggedIn">
+  <div class="col s12 m6 offset-m3">
+    <a routerLink="/login">
+      <div
+        id="botao-login"
+        class="card-panel amber accent-4 center my-card-button"
+      >
+        <span class="white-text flow-text"> LOGIN </span>
+      </div>
+    </a>
+  </div>
+</div>

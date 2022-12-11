@@ -15,6 +15,10 @@ import { AddComponent } from './add/add.component';
 import { ListComponent } from './list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NoteService } from './services/note.service';
+import { LoginComponent } from './login/login.component';
+import { LandPageComponent } from './land-page/land-page.component';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { NoteService } from './services/note.service';
     EditComponent,
     ViewComponent,
     AddComponent,
-    ListComponent
+    ListComponent,
+    LoginComponent,
+    LandPageComponent,
+    NotAuthorizedComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
